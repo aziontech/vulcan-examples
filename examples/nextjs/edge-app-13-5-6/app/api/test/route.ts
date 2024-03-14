@@ -4,7 +4,7 @@ import { baseEntity, generateResponse } from "../utils";
 export async function GET(request: NextRequest) {
   const page = parseInt(request.nextUrl?.searchParams?.get("page") || '0', 10);
   const limit = parseInt(request.nextUrl?.searchParams?.get("limit") || '0', 10);
-
+  
   const data = {
     ...baseEntity,
     requestData: {
