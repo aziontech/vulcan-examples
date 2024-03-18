@@ -58,19 +58,19 @@ section {
 
 .content {
   display: flex;
+  flex-direction: column;
   align-items: center;
   color: #ffffff;
-  margin: 6rem 0;
-  flex-direction: column;
-  width: 80vw;
+  margin: 7rem 0;
 }
 
 .content::before {
   content: "";
   background: url('./vector-bg.svg') no-repeat;
   position: absolute;
-  width: 90%;
-  height: 80%;
+  width: 807px;
+  height: 100vh;
+  top: 0;
   filter: blur(125px);
   left: 0%;
   z-index: -1;
@@ -86,7 +86,6 @@ section {
   width: 240px;
   height: 180px;
   z-index: -1;
-
 }
 
 .content span {

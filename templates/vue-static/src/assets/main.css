@@ -60,9 +60,10 @@ section {
 
 .content {
   display: flex;
+  flex-direction: column;
   align-items: center;
   color: #ffffff;
-  margin: 7.5rem 0;
+  margin: 7rem 0;
 }
 
 .content::before {
@@ -70,7 +71,8 @@ section {
   background: url('./vector-bg.svg') no-repeat;
   position: absolute;
   width: 807px;
-  height: 700px;
+  height: 100vh;
+  top: 0;
   filter: blur(125px);
   left: 0%;
   z-index: -1;
@@ -86,7 +88,6 @@ section {
   width: 240px;
   height: 180px;
   z-index: -1;
-
 }
 
 .content span {
