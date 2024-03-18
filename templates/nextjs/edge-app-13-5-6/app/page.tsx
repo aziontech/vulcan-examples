@@ -10,7 +10,7 @@ export default function Home() {
       </div>
       <div className="content space-y-6">
         <Image src="next.svg" alt="Next Logo" width={300} height={200} />
-        <h1>Next.js Edge App</h1>
+        <h1>Next.js (App Router) - Edge Runtime</h1>
       </div>
       <div className="footer">
         <a

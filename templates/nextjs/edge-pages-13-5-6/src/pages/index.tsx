@@ -1,20 +1,17 @@
 import Image from "next/image";
-import { Inter } from "next/font/google";
-
-const inter = Inter({ subsets: ["latin"] });
 
 export const runtime = "experimental-edge";
 
 export default function Home() {
   return (
     <section>
-      <div className={`header ${inter.className}`}>
+      <div className="header">
         <Image src="azion.svg" alt="Azion Logo" width={100} height={24} />
       </div>
       <div className="content space-y-6">
         <Image src="next.svg" alt="Next Logo" width={300} height={200} />
-        <h1>Next.js Edge App</h1>
-        </div>
+        <h1>Next.js (Pages Router) - Edge Runtime</h1>
+      </div>
       <div className="footer">
         <a
           href="https://www.azion.com/en/documentation/"
