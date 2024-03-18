@@ -24,18 +24,6 @@ cargo install -f wasm-bindgen-cli
 
 ```
 
-_Install dependencies_
-
-```bash
-
-npm install
-#or
-yarn install
-#or
-pnmp install
-
-```
-
 To start using this template with **Vulcan**, you need to:
 
 _Build Command_: To run the application build command

@@ -1,0 +1,21 @@
+.post {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 5px;
+    max-width: 300px;
+    min-height: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.post h2 {
+    color: #f3652b;
+}
+
+.post a {
+    border: 0;
+    margin: 0;
+    text-align: left;
+    padding: 5px 0;
+}
