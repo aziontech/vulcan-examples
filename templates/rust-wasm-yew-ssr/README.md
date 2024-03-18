@@ -4,6 +4,26 @@ The Azion **Rust WASM Yew SSR** is designed to simplify and enhance the deployme
 
 ## Usage Information
 
+- Install Rust [https://www.rust-lang.org/tools/install](https://www.rust-lang.org/tools/install)
+
+Add target wasm32-unknown-unknown.
+
+```bash
+
+rustup target add wasm32-unknown-unknown
+
+```
+
+Install wasm bindgen cli. [https://crates.io/crates/wasm-bindgen-cli](https://crates.io/crates/wasm-bindgen-cli)
+
+Execute:
+
+```bash
+
+cargo install -f wasm-bindgen-cli
+
+```
+
 _Install dependencies_
 
 ```bash
