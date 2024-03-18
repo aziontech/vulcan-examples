@@ -79,9 +79,10 @@ body {
     background: url('/vector-bg.svg') no-repeat;
     position: absolute;
     width: 807px;
-    height: 700px;
+    height: 100vh;
     filter: blur(125px);
     left: 0%;
+    top: 0;
     z-index: -1;
   }
   

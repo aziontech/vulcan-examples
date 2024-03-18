@@ -27,12 +27,13 @@ export default function IndexPage({ postList }) {
       </div>
       <div class="content">
         <Image src="/next.svg" width={200} height={100} alt="Next Logo" />
-        <h1>Static Blog Post</h1>
-        <div className="posts">
+        <h1>Next.js - Static (output export)</h1>
+        {/* remove the comment to list the posts */}
+        {/* <div className="posts"> 
           {postList.map((post) => (
             <Post {...post} key={post.id} />
           ))}
-        </div>
+        </div> */}
       </div>
       <div class="footer">
         <a
