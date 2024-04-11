@@ -8,7 +8,7 @@ Start right now at [nextjs.org/commerce](https://nextjs.org/commerce)
 > To run a minimal version of Next.js Commerce you can start with the default local provider `@vercel/commerce-local` that has all features disabled (cart, auth) and uses static files for the backend
 
 ```bash
-pnpm install & pnpm build
+pnpm install && pnpm build
 cd site
 vulcan build --mode=compute --preset=next
 vulcan dev
