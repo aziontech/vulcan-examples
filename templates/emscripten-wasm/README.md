@@ -8,11 +8,7 @@ _Install dependencies_
 
 ```bash
 
-npm install
-#or
-yarn install
-#or
-pnmp install
+brew install emscripten
 
 ```
 
