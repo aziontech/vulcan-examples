@@ -1,6 +1,6 @@
-# Simple Javascript Router
+# Wasm Image Processor
 
-The Azion **Simple Javascript Router** is designed to simplify and enhance the deployment process for Javascript applications directly on the edge of the network.
+Javascript worker with image resize example.
 
 ## Usage Information
 
