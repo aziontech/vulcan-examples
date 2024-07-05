@@ -1,11 +1,11 @@
 import fs from "node:fs";
 import fsPromises from "node:fs/promises";
 
-const DIR_PATH = "/";
+const DIR_PATH = ".";
 const FILE_PATH = `${DIR_PATH}/test.txt`;
 const COPY_FILE_DEST = `${DIR_PATH}/copy.txt`;
 const SECOND_COPY_FILE_DEST = `${DIR_PATH}/copy2.txt`;
-const NEW_DIR_PATH = `/abc`;
+const NEW_DIR_PATH = `abc`;
 
 function runSyncFsOperations() {
   const {
@@ -17,19 +17,23 @@ function runSyncFsOperations() {
     readdirSync,
   } = fs;
 
-  const fileDescriptor = openSync(FILE_PATH);
-  closeSync(fileDescriptor);
+  try {
+    const fileDescriptor = openSync(FILE_PATH);
+    closeSync(fileDescriptor);
 
-  const stat = statSync(FILE_PATH);
-  const lstat = lstatSync(FILE_PATH);
-  console.log(`\n[sync] stat result: ${JSON.stringify(stat)}`);
-  console.log(`\n[sync] lstat result: ${JSON.stringify(lstat)}`);
+    const stat = statSync(FILE_PATH);
+    const lstat = lstatSync(FILE_PATH);
+    console.log(`\n[sync] stat result: ${JSON.stringify(stat)}`);
+    console.log(`\n[sync] lstat result: ${JSON.stringify(lstat)}`);
 
-  const fileContent = readFileSync(FILE_PATH).toString();
-  console.log(`\n[sync] file content: ${fileContent}`);
+    const fileContent = readFileSync(FILE_PATH).toString();
+    console.log(`\n[sync] file content: ${fileContent}`);
 
-  const dirFiles = readdirSync(DIR_PATH);
-  console.log(`\n[sync] dir files: ${dirFiles}`);
+    const dirFiles = readdirSync(DIR_PATH);
+    console.log(`\n[sync] dir files: ${dirFiles}`);
+  } catch (err) {
+    throw new Error(`[sync] ${err.message}`)
+  }
 }
 
 async function runAsyncFsOperationsWithCallback() {
@@ -92,7 +96,7 @@ async function runAsyncFsOperationsWithCallback() {
       console.log(`[async - callback] error in mkdir: ${err}`);
     } else {
       rmdir(NEW_DIR_PATH, (err2) => {
-        if(err2) {
+        if (err2) {
           console.log(`[async - callback] error in rmdir: ${err2}`);
         }
       });
@@ -127,27 +131,31 @@ async function runAsyncFsOperationsWithPromises() {
     cp,
   } = fsPromises;
 
-  const fd = await open(FILE_PATH);
-  console.log(`\n[async - promise] open file result ${JSON.stringify(fd)}`);
+  try {
+    const fd = await open(FILE_PATH);
+    console.log(`\n[async - promise] open file result ${JSON.stringify(fd)}`);
 
-  const stats = await stat(FILE_PATH);
-  console.log(`\n[async - promise] stat result: ${JSON.stringify(stats)}`);
+    const stats = await stat(FILE_PATH);
+    console.log(`\n[async - promise] stat result: ${JSON.stringify(stats)}`);
 
-  const lstats = await lstat(FILE_PATH);
-  console.log(`\n[async - promise] lstat result: ${JSON.stringify(lstats)}`);
+    const lstats = await lstat(FILE_PATH);
+    console.log(`\n[async - promise] lstat result: ${JSON.stringify(lstats)}`);
 
-  const data = await readFile(FILE_PATH);
-  console.log(`\n[async - promise] file data: ${data}`);
+    const data = await readFile(FILE_PATH);
+    console.log(`\n[async - promise] file data: ${data}`);
 
-  await copyFile(FILE_PATH, COPY_FILE_DEST);
+    await copyFile(FILE_PATH, COPY_FILE_DEST);
 
-  await mkdir(NEW_DIR_PATH);
-  await rmdir(NEW_DIR_PATH);
+    await mkdir(NEW_DIR_PATH);
+    await rmdir(NEW_DIR_PATH);
 
-  const files = await readdir(DIR_PATH);
-  console.log(`\n[async - promise] dir files: ${files}`);
+    const files = await readdir(DIR_PATH);
+    console.log(`\n[async - promise] dir files: ${files}`);
 
-  await cp(FILE_PATH, SECOND_COPY_FILE_DEST);
+    await cp(FILE_PATH, SECOND_COPY_FILE_DEST);
+  } catch (err) {
+    throw new Error(`[async - promise] ${err.message}`)
+  }
 }
 
 export default async function handler() {
