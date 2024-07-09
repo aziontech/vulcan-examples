@@ -1,0 +1,16 @@
+{
+  "name": "simple-js-cookies",
+  "version": "1.0.0",
+  "description": "Simple Example of how to use cookies in JavaScript, using the 'azion/cookies' library",
+  "main": "main.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "aziontech",
+  "license": "ISC",
+  "dependencies": {
+    "azion": "latest"
+  }
+}
