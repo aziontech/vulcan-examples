@@ -1,4 +1,10 @@
 import { decode, sign, verify } from "azion/jwt";
+import {
+  generateResponse,
+  notFoundRoute,
+  methodNotAllowed,
+  unauthorized
+} from "../utils";
 import { CustomEvent } from "../types/event";
 
 const SECRET = 'MY_SECRET';
@@ -22,27 +28,6 @@ async function decodeJwt(token: string) {
   const { header, payload } = decode(token);
 
   return { header, payload };
-}
-
-function generateResponse(data: any, status: number = 200): Response {
-  return new Response(JSON.stringify(data), {
-    headers: {
-      "Content-Type": "application/json"
-    },
-    status,
-  });
-}
-
-function notFoundRoute(): Response {
-  return generateResponse({ message: "Not Found" }, 404);
-}
-
-function methodNotAllowed(): Response {
-  return generateResponse({ message: "Method Not Allowed" }, 405);
-}
-
-function unauthorized(): Response {
-  return generateResponse({ message: "Unauthorized" }, 401);
 }
 
 async function loginRoute(request: Request): Promise<Response> {
