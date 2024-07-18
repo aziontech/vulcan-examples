@@ -1,0 +1,1 @@
+import { AzionConfig } from 'azion';
