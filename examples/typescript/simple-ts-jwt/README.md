@@ -10,13 +10,16 @@ Install dependencies:
 
 npm install
 
+# If you are testing locally => run 'npm run compile && npm link' in lib and then link the example.
+# npm link azion@1.3.0
+
 ```
 
 Run the build command:
 
 ```bash
 
-npx edge-functions@latest build --preset javascript --mode deliver
+npx edge-functions@latest build --preset typescript --mode compute
 
 ```
 
