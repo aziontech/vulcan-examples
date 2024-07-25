@@ -10,6 +10,9 @@
   "keywords": [],
   "author": "aziontech",
   "license": "ISC",
+  "dependencies": {
+    "azion": "latest"
+  },
   "devDependencies": {
     "typescript": "^5.4.2"
   }
