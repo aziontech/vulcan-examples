@@ -1,4 +1,4 @@
-import fs from "node:fs";
+import fs  from "node:fs";
 import fsPromises from "node:fs/promises";
 
 const DIR_PATH = ".";
@@ -48,6 +48,9 @@ async function runAsyncFsOperationsWithCallback() {
     rmdir,
     copyFile,
     cp,
+    writeFile,
+    rename,
+    realpath,
   } = fs;
 
   open(FILE_PATH, (err, fd) => {
@@ -116,6 +119,48 @@ async function runAsyncFsOperationsWithCallback() {
       console.log(`[async - callback] error in cp: ${err}`);
     }
   });
+
+  writeFile('anothe_file_create_by_promises_fs_cb.txt', "another content in a file", (err) => {
+    if (err) {
+      console.log(`[async - callback] error in writeFile: ${err}`);
+    } else {
+      readFile('anothe_file_create_by_promises_fs_cb.tx', 'utf8', (err, data) => {
+        if (err) {
+          console.log(`[async - callback] error in readFile after write: ${err}`);
+        } else {
+          console.log(`\n[async - callback] file content after write: ${data}`);
+        }
+      });
+    }
+  });
+
+  writeFile('born_to_be_renamed.txt', "the file will be renamed!", (err) => {
+    if (err) {
+      console.log(`[async - callback] error in writeFile: ${err}`);
+    } else {
+      rename('born_to_be_renamed.txt', 'fulfilled_his_destiny.txt', (err) => {
+        if (err) {
+          console.log(`[async - callback] error in rename: ${err}`);
+        } else {
+          readFile('fulfilled_his_destiny.txt', 'utf8', (err, data) => {
+            if (err) {
+              console.log(`[async - callback] error in readFile after rename: ${err}`);
+            } else {
+              console.log(`\n[async - callback] file content after rename: ${data}`);
+            }
+          });
+        }
+      });
+    }
+  });
+
+  realpath('anothe_file_create_by_promises_fs_cb.txt', (err, resolvedPath) => {
+    if (err) {
+      console.log(`[async - callback] error in realpath: ${err}`);
+    } else {
+      console.log(`\n[async - callback] realpath: ${resolvedPath}`);
+    }
+  });
 }
 
 async function runAsyncFsOperationsWithPromises() {
@@ -129,11 +174,15 @@ async function runAsyncFsOperationsWithPromises() {
     rmdir,
     copyFile,
     cp,
+    writeFile,
+    rename,
+    realpath,
   } = fsPromises;
 
   try {
     const fd = await open(FILE_PATH);
     console.log(`\n[async - promise] open file result ${JSON.stringify(fd)}`);
+    fd.close();
 
     const stats = await stat(FILE_PATH);
     console.log(`\n[async - promise] stat result: ${JSON.stringify(stats)}`);
@@ -146,6 +195,23 @@ async function runAsyncFsOperationsWithPromises() {
 
     await copyFile(FILE_PATH, COPY_FILE_DEST);
 
+    console.log(`\n[async - promise] write file data`);
+    await writeFile('born_to_renamed_promises.txt', "the file will be renamed!");
+
+    const lstatsAfterWrite = await lstat('born_to_renamed_promises.txt');
+    console.log(`\n[async - promise] lstat result after write: ${JSON.stringify(lstatsAfterWrite)}`);
+
+    const fileContent_1 = await readFile('born_to_renamed_promises.txt', 'utf8');
+    console.log(`\n[async - promise] file content after write: ${fileContent_1}`);
+
+    await rename('born_to_renamed_promises.txt', 'was_renamed.txt');
+
+    const fileContent_2 = await readFile('was_renamed.txt', 'utf8');
+    console.log(`\n[async - promise] file content after rename: ${fileContent_2}`);
+
+    const realPath = await realpath('was_renamed.txt');
+    console.log(`\n[async - promise] realpath: ${realPath}`);
+
     await mkdir(NEW_DIR_PATH);
     await rmdir(NEW_DIR_PATH);
 
@@ -153,6 +219,7 @@ async function runAsyncFsOperationsWithPromises() {
     console.log(`\n[async - promise] dir files: ${files}`);
 
     await cp(FILE_PATH, SECOND_COPY_FILE_DEST);
+
   } catch (err) {
     throw new Error(`[async - promise] ${err.message}`)
   }
