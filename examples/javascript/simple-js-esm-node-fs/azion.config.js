@@ -1,9 +1,11 @@
 module.exports = {
+  build: {
   entry: 'index.js',
   builder: 'esbuild',
-  useNodePolyfills: true,
+  polyfills: true,
   memoryFS: {
     injectionDirs: ['files/'],
     removePathPrefix: 'files/',
   },
+}
 }

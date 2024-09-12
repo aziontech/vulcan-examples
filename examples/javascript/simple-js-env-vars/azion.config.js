@@ -4,6 +4,5 @@ export default {
     preset: {
       name: 'javascript',
     },
-    worker: true,
   },
 };
