@@ -1,8 +1,10 @@
 module.exports = {
-    useNodePolyfills: false,
-    useOwnWorker: false,
+  build: {
+    polyfills: false,
+    worker: false,
     preset: {
       name: 'rustwasm',
       mode: 'compute',
     },
-  };
+  },
+};
