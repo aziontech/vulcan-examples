@@ -1,17 +1,17 @@
 export default {
   build: {
-    builder: 'esbuild',
-    entry: 'main.js',
+    builder: "esbuild",
+    entry: "main.js",
     preset: {
-      name: 'javascript',
+      name: "javascript",
     },
-    useOwnWorker: true,
+    worker: true,
   },
   networkList: [
     {
       id: 1111,
-      listType: 'ip_cidr',
-      listContent: ['127.0.0.0/8'],
+      listType: "ip_cidr",
+      listContent: ["127.0.0.0/8"],
     },
   ],
 };
