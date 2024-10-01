@@ -1,14 +1,13 @@
 {
-  "name": "simple-js-env-vars",
+  "name": "simple-js-esm-storage",
   "version": "1.0.0",
-  "description": "",
+  "description": "This is an example of storage use, it shows how to add and get data.",
   "main": "main.js",
-  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "aziontech",
+  "author": "",
   "license": "ISC",
   "dependencies": {
     "azion": "latest"

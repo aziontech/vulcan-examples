@@ -11,6 +11,6 @@
   "author": "aziontech",
   "license": "ISC",
   "dependencies": {
-    "azion": "1.1.0"
+    "azion": "latest"
   }
 }

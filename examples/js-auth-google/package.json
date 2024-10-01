@@ -12,6 +12,7 @@
   "license": "ISC",
   "dependencies": {
     "itty-router": "^5.0.17",
-    "next-auth": "5.0.0-beta.18"
+    "next-auth": "5.0.0-beta.18",
+    "azion": "latest"
   }
 }

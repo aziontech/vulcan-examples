@@ -9,5 +9,8 @@
   },
   "keywords": [],
   "author": "aziontech",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "azion": "latest"
+  }
 }
