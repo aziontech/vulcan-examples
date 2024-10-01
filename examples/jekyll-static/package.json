@@ -1,14 +1,13 @@
 {
-  "name": "simple-js-env-vars",
+  "name": "jekyll-static",
   "version": "1.0.0",
-  "description": "",
-  "main": "main.js",
-  "type": "module",
+  "description": "A starter repository for Jekyll applications.",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "aziontech",
+  "author": "",
   "license": "ISC",
   "dependencies": {
     "azion": "latest"

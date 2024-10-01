@@ -9,5 +9,8 @@
   },
   "keywords": [],
   "author": "aziontech",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "azion": "latest"
+  }
 }

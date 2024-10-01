@@ -9,6 +9,7 @@
     "serve": "hugo server"
   },
   "dependencies": {
-    "hugo-bin": "^0.119.0"
+    "hugo-bin": "^0.119.0",
+    "azion": "latest"
   }
 }
